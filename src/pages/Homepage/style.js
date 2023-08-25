@@ -7,7 +7,7 @@ export const ContainerHomepage = styled.div`
 
 export const CardContainer = styled.div`
     width: 100%;
-    height: 10%;
+    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,7 +32,7 @@ export const ContainerServices = styled.div`
 `
 
 export const Card = styled.div`
-    width: 180px;
+    width: 80px;
     height: 70px;
     background: #F37415;
     display: flex;
@@ -52,18 +52,8 @@ export const Card = styled.div`
 
     span, img{
         margin: 0 1rem;
+        font-size:0.65rem;
     }
-`
-
-export const Mycard = styled.main`
-    width: 90%;
-    height: 150px;
-    background: #f5f5f5;
-    background: #000;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    color:#fff;
-    border:1px solid #fff;
 `
 
 export const MyCardImg = styled.div`
@@ -100,8 +90,8 @@ export const ContainerBalance = styled.div`
     align-items: center;
     flex-direction: column;
     background: #F37415;
-    border-bottom-left-radius: 100%;
-    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     color: #fff;
     div{
         width: 70%;
@@ -110,5 +100,25 @@ export const ContainerBalance = styled.div`
         justify-content: center;
         align-items: center;
         border-radius:20px;
+    }
+`
+
+export const ContainerInfo = styled.div`
+    width: 100%;
+    height: 10%;
+    background: red;
+`
+
+export const ContainerLoan = styled.div`
+    width: 70%;
+    height: 10%;
+    background: #424242;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    margin: 0 1rem;
+    span{
+        margin: 0 1rem;
+        font-size: 10px;
     }
 `

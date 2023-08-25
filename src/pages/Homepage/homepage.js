@@ -4,7 +4,7 @@ import NavBar from '../../components/NavBar/navBar';
 import useRequestData from '../../hooks/useRequestData';
 import { ContainerBase, ContainerMobile, Loading } from '../../styles/styleGlobal';
 import { BASE_URL } from '../../URL/url';
-import { Card, CardContainer, ContainerBalance, ContainerHomepage, ContainerServices, Mycard, MyCardImg, MyCardInfo, MyCardNumber } from './style';
+import { Card, CardContainer, ContainerBalance, ContainerHomepage, ContainerInfo, ContainerLoan, ContainerServices, Mycard, MyCardImg, MyCardInfo, MyCardNumber } from './style';
 import ImgPix from '../../images/pix.png'
 import ImgTransfer from '../../images/transfer.png'
 import ImgDeposit from '../../images/deposit.png'
@@ -49,22 +49,10 @@ return (
                     </div>
                 </ContainerBalance>
                 <ContainerServices>
-                    <Mycard>
-                        <MyCardImg>
-                        <img src='https://play-lh.googleusercontent.com/lveOdB-DgeKN3SHHGJx0OxSPBvhLgUOeRW18rW96wTXHPEPGKgLLB4TnwDIZ2m5F1_E' alt="Logo do cartão"/>
-                        </MyCardImg>
-                        <MyCardNumber>
-                            <span>7643-4703-3866-1235</span>
-                        </MyCardNumber>
-                        <MyCardInfo>
-                            <span>Validade: 11/2025</span>
-                            <span>Cod. segurança: 728</span>
-                        </MyCardInfo>
-                    </Mycard>
-                    <Card>
+                    {/* <Card>
                         <img src={ImgPix}/>
                         <span>Pix</span>
-                    </Card>
+                    </Card> */}
                     <Card onClick={()=>{navigate('/Transfer')}} >
                         <img src={ImgTransfer}/>
                         <span>Transferências</span>
@@ -75,16 +63,16 @@ return (
                     </Card>
                     <Card onClick={()=>{navigate('/MinhaConta')}}>
                         <img src={ImgMyPayment}/>
-                        <span>Meus Pagamentos</span>
+                        <span>Pagamentos</span>
                     </Card>
                     <Card onClick={()=>{navigate('/Pagamentos')}}>
                         <img src={ImgPayment}/>
-                        <span>Realizar Pagamento</span>
-                    </Card>
-                    <Card>
-
+                        <span>Pagar</span>
                     </Card>
                 </ContainerServices>
+                <ContainerLoan>
+                    <span>Voce tem R$ 10.000 disponiveis para emprestimo.</span>
+                </ContainerLoan>
             </ContainerHomepage>
             <NavBar/>
         </ContainerMobile>
