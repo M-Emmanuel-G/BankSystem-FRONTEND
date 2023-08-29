@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header/header';
 import NavBar from '../../components/NavBar/navBar';
 import useRequestData from '../../hooks/useRequestData';
@@ -13,41 +13,48 @@ import ImgMyPayment from '../../images/myPayments.png'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+// import getProfile from '../../hooks/getProfile';
 
 export default function Homepage() {
     const navigate = useNavigate()
 
     const [ profile ] = useRequestData(`${BASE_URL}/clients/getProfile`, {headers:{ authorization: localStorage.getItem('token')}})
-    
     const [ dataClient, isLoading ] = useRequestData(`${BASE_URL}/accounts/myAccountClient/${profile.id_user}`)
 
-    const getClient = dataClient.map((client, key)=>{
+    const getBalance = dataClient && dataClient.map((client)=>{
         return(
-            <div key={key}>
-                <span>Bem vindo, {client.name_client},</span>
-                <span>Conta: {client.cod_account} / {client.type_account} </span>
-            </div>
+            <span id='Balance'>R$ {Number(client.balance).toFixed(2)}</span>
         )
     })
 
-    const getBalance = dataClient.map((client)=>{
-        return client.balance
-    })
+    const showBalance = ()=>{
+        const balance = document.getElementById('Balance')
+        const showEye = document.getElementById('showBalance')
+        const unshowEye = document.getElementById('unshowBalance')
+
+        if(balance.style.display === 'flex') {
+            balance.style.display = 'none'
+            showEye.style.display = 'none'
+            unshowEye.style.display = 'flex'
+        }else{
+            balance.style.display = 'flex'
+            showEye.style.display = 'flex'
+            unshowEye.style.display = 'none'
+        }
+    }
     
 return (
     <ContainerBase>
         <ContainerMobile>
             <ContainerHomepage>
+                <Header/>
                 <CardContainer>
-                    {isLoading && 'Carregando...'}
-                    {!isLoading && getClient }
+                    <label>Saldo:</label>
+                    {isLoading && 'Carregando'}
+                    {!isLoading && getBalance}
+                    <img onClick={showBalance} id='showBalance' src='https://cdn-icons-png.flaticon.com/128/2767/2767194.png'/>
+                    <img onClick={showBalance} id='unshowBalance' src='https://cdn-icons-png.flaticon.com/128/2767/2767146.png'/>
                 </CardContainer>
-                <ContainerBalance>
-                    <div>
-                        <label>Saldo:</label>
-                        <span>R$ {Number(getBalance).toFixed(2)}</span>
-                    </div>
-                </ContainerBalance>
                 <ContainerServices>
                     {/* <Card>
                         <img src={ImgPix}/>
