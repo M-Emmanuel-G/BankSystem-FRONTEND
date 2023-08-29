@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from '../../components/Header/header';
 import NavBar from '../../components/NavBar/navBar';
 import { ContainerBase, ContainerMobile } from '../../styles/styleGlobal';
-import { ContainerTransfer} from './style';
+import { ContainerError, ContainerTransfer} from './style';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
@@ -13,8 +13,9 @@ import useRequestData from '../../hooks/useRequestData';
 export default function TransferPage() {
     const navigate = useNavigate()
 
-    const [value, setValue] = useState(0)
-    const [account, setAccount] = useState('')
+    const [ value, setValue ] = useState(0)
+    const [ account, setAccount ] = useState('')
+    const [ error, setError ] = useState('')
 
     const [ profile ] = useRequestData(`${BASE_URL}/clients/getProfile`, {headers:{ authorization: localStorage.getItem('token')}})
     const [dataClient] = useRequestData(`${BASE_URL}/accounts/myAccountClient/${profile.id_user}`)
@@ -24,7 +25,7 @@ export default function TransferPage() {
         ev.preventDefault()
 
         const body = {
-            newBalance: value,
+            newBalance: Number(value),
             codTransfer: account
         }
         
@@ -34,7 +35,7 @@ export default function TransferPage() {
                 toast.success(res.data.message)
                 navigate('/homepage')
             })
-            .catch((err)=>{toast.info(err.response.data)})
+            .catch((err)=>{setError(err.response.data)})
         
     }
 
@@ -65,6 +66,9 @@ export default function TransferPage() {
                                 onChange={(ev)=>{setValue(ev.target.value)}}
                             />
                         </div>
+                        <ContainerError>
+                            <span>{error}</span>
+                        </ContainerError>
                         <button>Tranferir</button>
                     </form>
                 </ContainerTransfer>

@@ -9,7 +9,7 @@ export const CardContainer = styled.div`
     width: 100%;
     height: 20%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     background: #F37415;
@@ -19,7 +19,25 @@ export const CardContainer = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: flex-start;
     }
+    span{
+        display: none;
+    }
+
+    img{
+        width: 30px;
+        height: 30px;
+    }
+
+    label, img{
+        margin: 0 1rem;
+    }
+
+    #showBalance{
+        display: none;
+    }
+
 `
 
 export const ContainerServices = styled.div`
