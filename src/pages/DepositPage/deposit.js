@@ -29,7 +29,6 @@ export default function DepositPage() {
         axios
             .post(`${BASE_URL}/accounts/deposit/${getCodAccount}`, body)
             .then((res=>{
-                toast.info(res.data.message)
                 navigate('/loading')
             }))
             .catch((err)=>{toast.info(err.response.data);})

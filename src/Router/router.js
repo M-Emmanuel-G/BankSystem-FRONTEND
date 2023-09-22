@@ -12,6 +12,8 @@ import ProcessPage from '../pages/ProcessPage/process';
 import ProfilePage from '../pages/ProfilePage/profile';
 import SignupPage from '../pages/SignupPage/Signup';
 import TransferPage from '../pages/TransferPage/transferPage';
+import VerifyPageTransfer from '../pages/VerifyPageTransfer/verifyPage';
+import UpdateProfile from '../pages/UpdateProfile/updateProfile';
 
 export default function Router() {
  return (
@@ -30,6 +32,8 @@ export default function Router() {
             <Route path='MeusBoletos' element={<MyBilletsPage/>}/>
             <Route path='Processando' element={<ProcessPage/>}/>
             <Route path='Loading' element={<LoadingPage/>}/>
+            <Route path='Verificando' element={<VerifyPageTransfer/>}/>
+            <Route path='AtualizarCadastro' element={<UpdateProfile/>}/>
         </Routes>
     </BrowserRouter>
  );

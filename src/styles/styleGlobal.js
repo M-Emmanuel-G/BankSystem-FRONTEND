@@ -40,8 +40,8 @@ export const Loading = styled.div`
     width: 30px;
     height: 30px;
     background: none;
-    border: 10px solid grey;
-    border-top: 10px solid #0dff00;
+    border: 10px solid transparent;
+    border-top: 10px solid #F47A18;
     border-radius: 50%;
     animation: ${animLoading} .5s linear infinite;
 `

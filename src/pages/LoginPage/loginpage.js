@@ -7,6 +7,7 @@ import { BASE_URL } from '../../URL/url';
 import { ContainerAction, ContainerError, ContainerInputs, ContainerLogin, ContainerLogo } from './style';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ImgLogo from '../../images/logo.png'
 
 export default function LoginPage() {
 
@@ -41,7 +42,7 @@ export default function LoginPage() {
             <ContainerLogin>
                 <form onSubmit={login}>
                     <ContainerLogo>
-                        <img src='https://play-lh.googleusercontent.com/lveOdB-DgeKN3SHHGJx0OxSPBvhLgUOeRW18rW96wTXHPEPGKgLLB4TnwDIZ2m5F1_E' alt="Logo do cartão"/>
+                        <img src={ImgLogo} alt="Logo do cartão"/>
                     </ContainerLogo>
                     <ContainerInputs>
                     <h3>Entrar em sua conta!</h3>
@@ -64,6 +65,7 @@ export default function LoginPage() {
                             value={password}
                             onChange={(ev)=>{setPassword(ev.target.value)}}
                             type='password'
+                            required
                         />
                     </div>
                     </ContainerInputs>
