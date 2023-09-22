@@ -53,3 +53,19 @@ export const ContainerError = styled.div`
         font-size: 12px;
     }
 `
+
+export const ContainerInfoClient = styled.div`
+    width: 70%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    div{
+        margin:0.3rem 0;
+        span{
+            margin: 0 1rem;
+            text-align: center;
+        }
+    }
+`

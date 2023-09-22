@@ -6,4 +6,8 @@ export const ContainerLoading = styled.main`
     display:flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    h3{
+        visibility: hidden;
+    }
 `;

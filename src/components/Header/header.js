@@ -11,7 +11,7 @@ export default function Header() {
     const getClient = dataClient.map((client, key)=>{
         return(
             <div key={key}>
-                <span>Bem vindo, {client.name_client},</span>
+                <span>{client.name_client},</span>
                 <span>Conta: {client.cod_account} / {client.type_account} </span>
             </div>
         )

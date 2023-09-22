@@ -5,19 +5,42 @@ export const ContainerProfile = styled.div`
     height: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+`;
+
+export const ContainerAction = styled.section`
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    div{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        span, label{
-            margin:1rem 2rem;
-        }
-        label{
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #F37415;
+    
+    h2, img{
+        margin: 0 1rem;
+    }
+
+    img{
+        height: 40px;
+        width: 40px;
+    }
+`
+
+export const ContainerInfo = styled.section`
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    img{
+        width: 200px;
+        height: 200px;
+        background: #fff;
+        border-radius: 15px;
+    }
+    section{
+        div{
+            margin: 0.7rem 0rem;
+            label, span{
+                margin: 0rem 1rem;
+            }
         }
     }
-`;
+`
